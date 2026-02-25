@@ -1,5 +1,5 @@
 import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+
 import WhatsAppButton from "../components/common/WhatsAppButton";
 
 // sections
@@ -29,7 +29,6 @@ const Home = () => {
       <CTA />
       <Contact />
 
-      <Footer />
       <WhatsAppButton />
 
     </div>
