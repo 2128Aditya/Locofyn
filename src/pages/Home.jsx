@@ -36,7 +36,7 @@ const Home = () => {
             transition={{ delay: 0.3 }}
             className="mt-6 text-gray-200"
           >
-            We create stunning websites for local businesses that bring more customers and growth.
+            We create stunning websites for local businesses that bring more customers and growth. contact us for website making.
           </motion.p>
 
           {/* Buttons */}
