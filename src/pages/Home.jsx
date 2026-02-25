@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import Navbar from "../components/layout/Navbar";
 
 const Home = () => {
   return (
     <div className="font-[Inter]">
+      <Navbar />
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
@@ -46,13 +48,21 @@ const Home = () => {
             transition={{ delay: 0.6 }}
             className="mt-8 flex gap-4 justify-center flex-wrap"
           >
-            <button className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold transition shadow-lg">
+            <motion.button
+              whileHover={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold transition shadow-lg"
+            >
               Get Started
-            </button>
+            </motion.button>
 
-            <button className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition">
+            <motion.button
+              whileHover={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition"
+            >
               View Work
-            </button>
+            </motion.button>
           </motion.div>
 
           {/* Search Box / Glass Card */}
