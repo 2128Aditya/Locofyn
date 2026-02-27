@@ -2,45 +2,42 @@ import { motion } from "framer-motion";
 
 const CTA = () => {
   return (
-    <section className="relative py-28 bg-gradient-to-br from-[#fab4b4] via-[#e1e5f2] to-[#f7ecd9] overflow-hidden text-center px-6">
+    <section className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden px-6 transition-colors duration-500">
 
-      {/* Glow */}
-      <div className="absolute top-[-80px] left-[-80px] w-[250px] h-[250px] bg-orange-300 opacity-20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-[-80px] right-[-80px] w-[250px] h-[250px] bg-pink-300 opacity-20 blur-3xl rounded-full"></div>
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-pink-500/10 dark:from-orange-500/5 dark:to-pink-500/5"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/20 blur-[120px] rounded-full animate-pulse"></div>
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="max-w-3xl mx-auto"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-4xl mx-auto relative z-10 text-center"
       >
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Ready to Grow Your{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-            Business Online?
+        <div className="inline-block px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-xs uppercase tracking-widest mb-8">
+          Launch Now
+        </div>
+
+        <h2 className="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-tight mb-8">
+          Your Business Deserves a{" "}
+          <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+            World-Class Website.
           </span>
         </h2>
 
-        {/* Subtext */}
-        <p className="text-gray-600 mt-6">
-          Get a modern, high-converting website that helps you attract customers,
-          increase sales and build a strong online presence.
+        <p className="text-slate-600 dark:text-gray-400 mt-6 text-xl leading-relaxed max-w-2xl mx-auto mb-12">
+          Stop losing customers to outdated designs. Let's build a high-converting digital engine that drives your business forward.
         </p>
 
-        {/* Buttons */}
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-
-          {/* Primary CTA */}
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition">
-            🚀 Get Started
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <button className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 transition-all active:scale-95">
+            🚀 Start My Project
           </button>
 
-          {/* Secondary CTA */}
-          <button className="bg-white/70 backdrop-blur-md border border-white/40 px-8 py-3 rounded-xl font-semibold text-gray-900 hover:bg-white transition">
-            View Pricing
+          <button className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/80 dark:hover:bg-white/20 transition-all active:scale-95">
+            View Case Studies
           </button>
-
         </div>
       </motion.div>
 

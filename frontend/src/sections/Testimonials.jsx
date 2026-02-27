@@ -20,44 +20,69 @@ const Testimonials = () => {
   ];
 
   return (
-       <section className="relative py-28 bg-gradient-to-br from-[#fab4b4] via-[#fab4b4] to-[#fab4b4] overflow-hidden px-6">
+    <section className="relative py-32 bg-slate-50 dark:bg-[#0b1120] overflow-hidden px-6 transition-colors duration-500">
+
+      {/* Background decoration */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-500/5 blur-[100px] rounded-full"></div>
+
       {/* Heading */}
-     <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-          What Our{" "}
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white">
+          Client{" "}
           <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-            Clients Say
+            Success Stories
           </span>
         </h2>
-        <p className="text-gray-500 mt-4">
-          Real feedback from businesses we’ve helped grow online.
+        <p className="text-slate-600 dark:text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
+          Don't just take our word for it. Hear from the entrepreneurs who have transformed their businesses with Locafyn.
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mt-16">
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mt-24 relative z-10">
         {data.map((item, i) => (
           <motion.div
             key={i}
-            whileHover={{ y: -10, scale: 1.03 }}
-            className="bg-white/60 backdrop-blur-xl p-8 rounded-2xl border border-white/30 shadow-md hover:shadow-2xl transition-all duration-300 text-left"
+            whileHover={{ y: -10 }}
+            className="group relative"
           >
-            {/* Stars */}
-            <div className="text-yellow-400 mb-4">★★★★★</div>
+            {/* Glow on hover */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
 
-            {/* Text */}
-            <p className="text-gray-700 leading-relaxed mb-6">
-              “{item.text}”
-            </p>
+            {/* Card Content */}
+            <div className="relative h-full bg-white dark:bg-slate-900/50 backdrop-blur-sm p-10 rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300">
 
-            {/* User */}
-            <div>
-              <h3 className="font-semibold text-gray-900">
-                {item.name}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                {item.role}
+              {/* Quote Icon */}
+              <div className="text-5xl text-purple-600/20 dark:text-purple-400/20 absolute top-8 right-8">
+                "
+              </div>
+
+              {/* Stars */}
+              <div className="flex gap-1 text-yellow-500 mb-6">
+                {"★★★★★".split("").map((star, idx) => (
+                  <span key={idx}>{star}</span>
+                ))}
+              </div>
+
+              {/* Text */}
+              <p className="text-slate-700 dark:text-gray-300 leading-relaxed mb-8 text-lg italic">
+                “{item.text}”
               </p>
+
+              {/* User Bio */}
+              <div className="flex items-center gap-4 border-t border-slate-100 dark:border-white/5 pt-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                  {item.name.charAt(0)}
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 dark:text-white">
+                    {item.name}
+                  </h3>
+                  <p className="text-slate-500 dark:text-gray-500 text-sm">
+                    {item.role}
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}

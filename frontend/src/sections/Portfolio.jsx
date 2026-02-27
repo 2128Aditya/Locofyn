@@ -47,63 +47,71 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="relative py-28 bg-gradient-to-br from-[#fab4b4] via-[#fab4b4] to-[#fab4b4] overflow-hidden px-6">
+    <section className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden px-6 transition-colors duration-500">
 
-      {/* Heading (CENTER FIX) */}
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Our{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+      {/* Decorative Blur */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full"></div>
+
+      {/* Heading */}
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white">
+          Our Recent{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">
             Work
           </span>
         </h2>
-        <p className="text-gray-500 mt-4">
-          A glimpse of projects we’ve built to help businesses grow digitally.
+        <p className="text-slate-600 dark:text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
+          Explore our portfolio of successful projects where we've helped businesses establish a dominant digital presence.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-6 mt-24 relative z-10">
         {projects.map((item, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ y: -10 }}
             className="group"
           >
-            <div className="relative overflow-hidden rounded-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10">
 
-              <img
-                src={`https://images.unsplash.com/${item.id}?auto=format&fit=crop&w=800&q=80`}
-                alt={item.title}
-                className="w-full h-[220px] object-cover transition duration-500 group-hover:scale-110"
-              />
+              <div className="relative overflow-hidden">
+                <img
+                  src={`https://images.unsplash.com/${item.id}?auto=format&fit=crop&w=800&q=80`}
+                  alt={item.title}
+                  className="w-full h-[260px] object-cover transition duration-700 group-hover:scale-110"
+                />
 
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
-
-                <a
-                  href={item.live}
-                  className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition"
-                >
-                  View
-                </a>
-
-                <a
-                  href={item.code}
-                  className="bg-orange-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-orange-600 transition"
-                >
-                  Code
-                </a>
-
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 backdrop-blur-sm">
+                  <a
+                    href={item.live}
+                    className="bg-white text-black px-6 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition active:scale-95"
+                  >
+                    Live Demo
+                  </a>
+                  <a
+                    href={item.code}
+                    className="bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-blue-700 transition active:scale-95"
+                  >
+                    Details
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="mt-4 text-left">
-              <h3 className="text-lg font-semibold text-gray-900">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 text-sm mt-1">
-                {item.desc}
-              </p>
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 dark:text-gray-400 text-sm mt-3 leading-relaxed">
+                  {item.desc}
+                </p>
+
+                <div className="mt-6 flex items-center text-blue-600 dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
+                  <span>View Case Study</span>
+                  <span className="ml-2 transition-transform group-hover:translate-x-2">→</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}
