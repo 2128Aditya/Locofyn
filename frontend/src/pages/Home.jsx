@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import WhatsAppButton from "../components/common/WhatsAppButton";
 
 // sections
@@ -13,6 +14,15 @@ import FAQ from "../sections/FAQ";
 import Contact from "../sections/Contact";
 
 const Home = () => {
+  const [businesses, setBusinesses] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/business")
+      .then((res) => res.json())
+      .then((data) => setBusinesses(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="bg-white dark:bg-[#020617] text-slate-900 dark:text-white font-[Inter] transition-colors duration-500 min-h-screen">
 
@@ -20,7 +30,10 @@ const Home = () => {
       <Services />
       <Process />
       <Feature />
-      <Portfolio />
+
+      {/* 🔥 Dynamic Portfolio */}
+      <Portfolio data={businesses} />
+
       <Testimonials />
       <Pricing />
       <FAQ />
@@ -28,7 +41,6 @@ const Home = () => {
       <Contact />
 
       <WhatsAppButton />
-
     </div>
   );
 };

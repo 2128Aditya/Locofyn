@@ -3,10 +3,10 @@ import aboutImg from "../assets/about.svg";
 
 const About = () => {
   return (
-        <section className="relative py-28 bg-gradient-to-br from-[#fab4b4] via-[#fab4b4] to-[#fab4b4] overflow-hidden px-6">
+        <section className="relative py-28 bg-linear-to-br from-[#fab4b4] via-[#fab4b4] to-[#fab4b4] overflow-hidden px-6">
       {/* Glow Effects */}
-      <div className="absolute top-[-80px] left-[-80px] w-[250px] h-[250px] bg-pink-300 opacity-20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-[-80px] right-[-80px] w-[250px] h-[250px] bg-purple-300 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -top-20 -left-20 w-62.5 h-62.5 bg-pink-300 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -bottom-20 -right-20 w-62.5 h-62.5 bg-purple-300 opacity-20 blur-3xl rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
@@ -18,27 +18,26 @@ const About = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             About{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
               Locafyn
             </span>
           </h2>
+<p className="text-black font-medium mt-6 leading-relaxed">
+  Locafyn is a modern digital solutions platform dedicated to helping local businesses
+  grow in the digital world. We specialize in building high-performance websites,
+  scalable mobile applications, and powerful digital systems tailored to your needs.
+</p>
 
-          <p className="text-gray-700 mt-6 leading-relaxed">
-            Locafyn is a modern digital solutions platform dedicated to helping local businesses
-            grow in the digital world. We specialize in building high-performance websites,
-            scalable mobile applications, and powerful digital systems tailored to your needs.
-          </p>
+<p className="text-black font-medium mt-4 leading-relaxed">
+  Our focus is not just on design, but on delivering real results. We combine strategy,
+  creativity, and technology to create solutions that improve visibility, increase
+  engagement, and drive business growth.
+</p>
 
-          <p className="text-gray-700 mt-4 leading-relaxed">
-            Our focus is not just on design, but on delivering real results. We combine strategy,
-            creativity, and technology to create solutions that improve visibility, increase
-            engagement, and drive business growth.
-          </p>
-
-          <p className="text-gray-700 mt-4 leading-relaxed">
-            Whether you are a startup or an established business, Locafyn helps you build a strong
-            digital presence and scale efficiently in today’s competitive environment.
-          </p>
+<p className="text-black font-medium mt-4 leading-relaxed">
+  Whether you are a startup or an established business, Locafyn helps you build a strong
+  digital presence and scale efficiently in today’s competitive environment.
+</p>
 
           {/* Stats */}
           <div className="flex flex-wrap gap-10 mt-8">
