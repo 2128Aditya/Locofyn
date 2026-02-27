@@ -8,6 +8,7 @@ import Admin from "./pages/Admin"; // ✅ IMPORT ADD
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import Team from "./pages/Team";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<AdminLogin />} />
             <Route path="/admin" element={<Admin />} /> {/* ✅ MAIN FIX */}
+            <Route path="/team" element={<Team />} />
           </Routes>
 
           <Footer />

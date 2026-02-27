@@ -11,13 +11,20 @@ const Footer = () => {
           <h1 className="text-3xl font-extrabold tracking-tight">
             Loca<span className="text-orange-500">fyn</span>
           </h1>
+
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
-            Empowering local entrepreneurs with premium digital identities. We build the tools you need to dominate your local market.
+            Empowering local entrepreneurs with premium digital identities. 
+            We help businesses grow digitally 🚀
           </p>
+
+          {/* Social Icons */}
           <div className="flex gap-4">
-            {/* Social Icons Placeholder */}
             {["𝕏", "📸", "💼", "📘"].map((icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all">
+              <a
+                key={i}
+                href="#"
+                className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
+              >
                 {icon}
               </a>
             ))}
@@ -26,44 +33,77 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">Quick Navigation</h3>
+          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">
+            Quick Navigation
+          </h3>
+
           <ul className="space-y-4">
-            {["Home", "Services", "Work", "Pricing", "Contact"].map((link) => (
-              <li key={link}>
-                <a href={`#${link.toLowerCase()}`} className="text-slate-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
-                  {link}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a href="/" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="#services" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+                Services
+              </a>
+            </li>
+
+            <li>
+              <a href="#work" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+                Work
+              </a>
+            </li>
+
+            <li>
+              <a href="/team" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+                Core Team
+              </a>
+            </li>
+
+            <li>
+              <a href="#contact" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+                Contact
+              </a>
+            </li>
           </ul>
         </div>
 
         {/* Solutions */}
         <div>
-          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">Our Solutions</h3>
+          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">
+            Our Solutions
+          </h3>
+
           <ul className="space-y-4 text-slate-600 dark:text-gray-400">
             <li>High-End Web Design</li>
             <li>Custom App Development</li>
-            <li>E-commerce Engines</li>
-            <li>SEO Dominance</li>
-            <li>Strategic Branding</li>
+            <li>E-commerce Solutions</li>
+            <li>SEO Optimization</li>
+            <li>Branding & Strategy</li>
           </ul>
         </div>
 
-        {/* Contact info */}
+        {/* Contact Info */}
         <div>
-          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">Company</h3>
+          <h3 className="font-bold text-lg mb-8 uppercase tracking-widest text-orange-500">
+            Contact
+          </h3>
+
           <ul className="space-y-4 text-slate-600 dark:text-gray-400">
             <li className="flex items-center gap-3">
-              <span className="text-xl">📍</span>
+              <span>📍</span>
               <span>Deoria, Uttar Pradesh</span>
             </li>
-            <li className="flex items-center gap-3 text-sm">
-              <span className="text-xl">📧</span>
+
+            <li className="flex items-center gap-3">
+              <span>📧</span>
               <span>hello@locafyn.com</span>
             </li>
+
             <li className="flex items-center gap-3">
-              <span className="text-xl">📱</span>
+              <span>📱</span>
               <span>+91 98765 43210</span>
             </li>
           </ul>
@@ -71,10 +111,10 @@ const Footer = () => {
 
       </div>
 
-      {/* Copyright area */}
-      <div className="border-t border-slate-200 dark:border-white/5 py-8 text-center relative">
-        <p className="text-slate-500 text-sm font-medium">
-          © {new Date().getFullYear()} Locafyn. Built with ❤️ for Local Businesses. All rights reserved.
+      {/* Bottom */}
+      <div className="border-t border-slate-200 dark:border-white/5 py-8 text-center">
+        <p className="text-slate-500 text-sm">
+          © {new Date().getFullYear()} Locafyn 🚀 | Built for Local Businesses
         </p>
       </div>
     </footer>
