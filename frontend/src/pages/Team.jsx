@@ -8,54 +8,76 @@ const team = [
     github: "https://github.com/2128Aditya",
     linkedin: "https://www.linkedin.com/in/aaditya212817",
   },
+  {
+    name: "Aman Pandey",
+    role: "Frontend Developer",
+    img: "https://i.pravatar.cc/300?img=5",
+    github: "#",
+    linkedin: "#",
+  },
+  {
+    name: "Abhay Dubey",
+    role: "Backend Developer",
+    img: "https://i.pravatar.cc/300?img=7",
+    github: "#",
+    linkedin: "#",
+  },
 ];
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-white px-6 py-24">
+    <div className="min-h-screen bg-[#FAF7FF] px-6 py-24">
 
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-20">
-        Our Core Team 🚀
-      </h1>
+      <div className="text-center mb-20">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900">
+          Our Core Team 🚀
+        </h1>
+        <p className="text-gray-500 mt-4 text-lg">
+          Meet the people building Locafyn
+        </p>
+      </div>
 
-      {/* Card */}
-      <div className="flex justify-center">
+      {/* Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
         {team.map((member, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -10 }}
-            className="w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-xl p-8 text-center transition-all"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -10, scale: 1.03 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition-all border border-[#E9D5FF]"
           >
 
-            {/* Role Badge */}
-            <div className="inline-block mb-6 px-5 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-semibold">
-              {member.role}
-            </div>
-
-            {/* Passport Image */}
-            <div className="w-40 h-40 mx-auto mb-6">
+            {/* Image */}
+            <div className="overflow-hidden rounded-2xl">
               <img
                 src={member.img}
                 alt={member.name}
-                className="w-full h-full object-cover rounded-2xl border border-slate-200"
+                className="w-full h-[220px] object-cover"
               />
             </div>
 
-            {/* Name */}
-            <h2 className="text-2xl font-bold text-slate-900">
-              {member.name}
-            </h2>
+            {/* Info */}
+            <div className="mt-5 text-center">
+              <h3 className="text-xl font-bold text-gray-900">
+                {member.name}
+              </h3>
 
-            {/* Social Buttons */}
+              <p className="text-purple-600 text-sm font-medium mt-1">
+                {member.role}
+              </p>
+            </div>
+
+            {/* Buttons */}
             <div className="flex justify-center gap-4 mt-6">
 
               <a
                 href={member.github}
                 target="_blank"
-                className="px-5 py-2 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition"
+                className="px-4 py-2 bg-gray-900 text-white rounded-xl text-sm hover:bg-black transition"
               >
                 GitHub
               </a>
@@ -63,7 +85,7 @@ const Team = () => {
               <a
                 href={member.linkedin}
                 target="_blank"
-                className="px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
+                className="px-4 py-2 bg-purple-600 text-white rounded-xl text-sm hover:bg-purple-700 transition"
               >
                 LinkedIn
               </a>
@@ -72,6 +94,7 @@ const Team = () => {
 
           </motion.div>
         ))}
+
       </div>
 
     </div>

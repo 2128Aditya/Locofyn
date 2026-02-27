@@ -1,13 +1,19 @@
+import adVideo from "../assets/ad.mp4";
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
 
-      {/* Background Image with Overlay */}
-      <img
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-        alt="background"
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute w-full h-full object-cover scale-105"
-      />
+      >
+        <source src={adVideo} type="video/mp4" />
+      </video>
 
       {/* Theme-aware Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/70 dark:from-black/70 dark:via-black/60 dark:to-[#020617]/90 transition-colors duration-500"></div>
