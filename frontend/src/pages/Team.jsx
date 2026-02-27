@@ -1,26 +1,13 @@
 import { motion } from "framer-motion";
-
+import myPhoto from "../assets/me.jpeg";
 const team = [
   {
     name: "Aditya Singh",
-    role: "Full Stack Developer",
-    img: "https://i.pravatar.cc/300?img=3",
+    role: "Founder & Full Stack Developer",
+    img: myPhoto, 
     github: "https://github.com/2128Aditya",
     linkedin: "https://www.linkedin.com/in/aaditya212817",
-  },
-  {
-    name: "Aman Pandey",
-    role: "Frontend Developer",
-    img: "https://i.pravatar.cc/300?img=5",
-    github: "#",
-    linkedin: "#",
-  },
-  {
-    name: "Abhay Dubey",
-    role: "Backend Developer",
-    img: "https://i.pravatar.cc/300?img=7",
-    github: "#",
-    linkedin: "#",
+    portfolio: "#",
   },
 ];
 
@@ -31,70 +18,76 @@ const Team = () => {
       {/* Heading */}
       <div className="text-center mb-20">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900">
-          Our Core Team 🚀
+          Meet Our Core Team 🚀
         </h1>
-        <p className="text-gray-500 mt-4 text-lg">
-          Meet the people building Locafyn
+        <p className="text-gray-500 mt-4">
+          The minds behind Locafyn
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
+      <div className="flex justify-center">
         {team.map((member, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -10, scale: 1.03 }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition-all border border-[#E9D5FF]"
+            whileHover={{ scale: 1.05 }}
+            className="relative w-[320px] h-105 rounded-3xl overflow-hidden shadow-xl group"
           >
 
-            {/* Image */}
-            <div className="overflow-hidden rounded-2xl">
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-full h-[220px] object-cover"
-              />
-            </div>
+            {/* Image Full */}
+            <img
+              src={member.img}
+              alt={member.name}
+              className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+            />
 
-            {/* Info */}
-            <div className="mt-5 text-center">
-              <h3 className="text-xl font-bold text-gray-900">
+            {/* Overlay Dark */}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+
+            {/* Bottom Box */}
+            <div className="absolute bottom-0 w-full p-5 bg-white/90 backdrop-blur-md rounded-t-3xl transition-all duration-500 group-hover:translate-y-[-10px]">
+
+              <h3 className="text-lg font-bold text-gray-900">
                 {member.name}
               </h3>
 
-              <p className="text-purple-600 text-sm font-medium mt-1">
+              <p className="text-purple-600 text-sm font-medium">
                 {member.role}
               </p>
-            </div>
 
-            {/* Buttons */}
-            <div className="flex justify-center gap-4 mt-6">
+              {/* Buttons */}
+              <div className="flex gap-2 mt-4 flex-wrap">
 
-              <a
-                href={member.github}
-                target="_blank"
-                className="px-4 py-2 bg-gray-900 text-white rounded-xl text-sm hover:bg-black transition"
-              >
-                GitHub
-              </a>
+                <a
+                  href={member.portfolio}
+                  target="_blank"
+                  className="text-xs px-3 py-1 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                >
+                  Portfolio
+                </a>
 
-              <a
-                href={member.linkedin}
-                target="_blank"
-                className="px-4 py-2 bg-purple-600 text-white rounded-xl text-sm hover:bg-purple-700 transition"
-              >
-                LinkedIn
-              </a>
+                <a
+                  href={member.github}
+                  target="_blank"
+                  className="text-xs px-3 py-1 bg-gray-900 text-white rounded-lg hover:bg-black transition"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  className="text-xs px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                >
+                  LinkedIn
+                </a>
+
+              </div>
 
             </div>
 
           </motion.div>
         ))}
-
       </div>
 
     </div>
