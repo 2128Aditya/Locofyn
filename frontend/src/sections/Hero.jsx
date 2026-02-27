@@ -33,7 +33,7 @@ const Hero = () => {
         </h1>
 
         {/* Subtext */}
-        <p className="mt-8 text-slate-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+       <p className="mt-8 text-black text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
           We craft high-performance websites that transform your business and drive measurable growth in the digital era.
         </p>
 

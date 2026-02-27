@@ -1,17 +1,21 @@
 import { motion } from "framer-motion";
-import myPhoto from "../assets/me.jpeg";
-const team = [
-  {
-    name: "Aditya Singh",
-    role: "Founder & Full Stack Developer",
-    img: myPhoto, 
-    github: "https://github.com/2128Aditya",
-    linkedin: "https://www.linkedin.com/in/aaditya212817",
-    portfolio: "#",
-  },
-];
+import { useEffect, useState } from "react";
 
 const Team = () => {
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/team")
+      .then((res) => res.json())
+      .then((data) => setTeam(data));
+  }, []);
+
+  const fixURL = (url) => {
+    if (!url) return "";
+    if (!url.startsWith("http")) return "https://" + url;
+    return url;
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF7FF] px-6 py-24">
 
@@ -26,26 +30,26 @@ const Team = () => {
       </div>
 
       {/* Grid */}
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-wrap gap-10">
         {team.map((member, i) => (
           <motion.div
-            key={i}
+            key={member._id}
             whileHover={{ scale: 1.05 }}
             className="relative w-[320px] h-105 rounded-3xl overflow-hidden shadow-xl group"
           >
 
             {/* Image Full */}
             <img
-              src={member.img}
+              src={member.image}
               alt={member.name}
               className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
             />
 
-            {/* Overlay Dark */}
+            {/* Overlay */}
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
 
             {/* Bottom Box */}
-            <div className="absolute bottom-0 w-full p-5 bg-white/90 backdrop-blur-md rounded-t-3xl transition-all duration-500 group-hover:translate-y-[-10px]">
+            <div className="absolute bottom-0 w-full p-5 bg-white/90 backdrop-blur-md rounded-t-3xl transition-all duration-500 group-hover:-translate-y-2.5">
 
               <h3 className="text-lg font-bold text-gray-900">
                 {member.name}
@@ -58,29 +62,35 @@ const Team = () => {
               {/* Buttons */}
               <div className="flex gap-2 mt-4 flex-wrap">
 
-                <a
-                  href={member.portfolio}
-                  target="_blank"
-                  className="text-xs px-3 py-1 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
-                >
-                  Portfolio
-                </a>
+                {member.portfolio && (
+                  <a
+                    href={fixURL(member.portfolio)}
+                    target="_blank"
+                    className="text-xs px-3 py-1 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                  >
+                    Portfolio
+                  </a>
+                )}
 
-                <a
-                  href={member.github}
-                  target="_blank"
-                  className="text-xs px-3 py-1 bg-gray-900 text-white rounded-lg hover:bg-black transition"
-                >
-                  GitHub
-                </a>
+                {member.github && (
+                  <a
+                    href={fixURL(member.github)}
+                    target="_blank"
+                    className="text-xs px-3 py-1 bg-gray-900 text-white rounded-lg hover:bg-black transition"
+                  >
+                    GitHub
+                  </a>
+                )}
 
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  className="text-xs px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-                >
-                  LinkedIn
-                </a>
+                {member.linkedin && (
+                  <a
+                    href={fixURL(member.linkedin)}
+                    target="_blank"
+                    className="text-xs px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    LinkedIn
+                  </a>
+                )}
 
               </div>
 

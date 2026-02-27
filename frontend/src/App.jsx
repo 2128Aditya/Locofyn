@@ -5,10 +5,13 @@ import Loader from "./components/Loader";
 import Home from "./pages/Home";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin"; 
-
+import About from "./pages/About";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Team from "./pages/Team";
+
+
+<Route path="/about" element={<About />} />
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,6 +35,7 @@ function App() {
             <Route path="/login" element={<AdminLogin />} />
             <Route path="/admin" element={<Admin />} /> {/* ✅ MAIN FIX */}
             <Route path="/team" element={<Team />} />
+            <Route path="/about" element={<About />} />
           </Routes>
 
           <Footer />
