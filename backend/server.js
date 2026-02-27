@@ -20,6 +20,9 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/business", require("./routes/businessRoutes"));
 
+// 🔥 NEW TEAM ROUTE (ADD KIYA HAI)
+app.use("/api/team", require("./routes/teamRoutes"));
+
 // Test route
 app.get("/", (req, res) => {
   res.send("API Running 🚀");
