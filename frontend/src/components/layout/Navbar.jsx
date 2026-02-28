@@ -7,7 +7,7 @@ const Navbar = () => {
   const [dark, setDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // ✅ FIX: Load theme properly on mount
+  // Load theme
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
@@ -44,9 +44,10 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
-          : "bg-transparent dark:bg-white/5"
+        ${
+          scrolled
+            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
+            : "bg-transparent dark:bg-white/5"
         }`}
     >
       <div className="w-full px-6 py-4 flex items-center justify-between">
@@ -58,26 +59,11 @@ const Navbar = () => {
 
         {/* CENTER MENU */}
         <div className="hidden md:flex gap-12 items-center font-bold text-slate-800 dark:text-gray-200">
-
-          <Link to="/" className="hover:text-orange-500 transition">
-            Home
-          </Link>
-
-          <a href="/#services" className="hover:text-orange-500 transition">
-            Services
-          </a>
-
-          <a href="/#work" className="hover:text-orange-500 transition">
-            Work
-          </a>
-
-          <Link to="/about" className="hover:text-orange-500 transition">
-            About Us
-          </Link>
-
-          <a href="/#contact" className="hover:text-orange-500 transition">
-            Contact
-          </a>
+          <Link to="/" className="hover:text-orange-500 transition">Home</Link>
+          <a href="/#services" className="hover:text-orange-500 transition">Services</a>
+          <a href="/#work" className="hover:text-orange-500 transition">Work</a>
+          <Link to="/about" className="hover:text-orange-500 transition">About Us</Link>
+          <a href="/#contact" className="hover:text-orange-500 transition">Contact</a>
         </div>
 
         {/* RIGHT SIDE */}
@@ -91,10 +77,15 @@ const Navbar = () => {
             {dark ? "🌙" : "☀️"}
           </button>
 
-          {/* CTA */}
-          <button className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-7 py-2.5 rounded-xl font-bold transition">
+          {/* CTA - WhatsApp */}
+          <a
+            href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20build%20a%20website"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-7 py-2.5 rounded-xl font-bold transition"
+          >
             Get Website
-          </button>
+          </a>
 
           {/* MOBILE MENU BTN */}
           <button
@@ -113,31 +104,21 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-white/95 dark:bg-black/90 backdrop-blur-xl px-6 pb-6 flex flex-col gap-4 text-slate-900 dark:text-white"
         >
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <a href="/#services" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="/#work" onClick={() => setMenuOpen(false)}>Work</a>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+          <a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-
-          <a href="/#services" onClick={() => setMenuOpen(false)}>
-            Services
-          </a>
-
-          <a href="/#work" onClick={() => setMenuOpen(false)}>
-            Work
-          </a>
-
-          <Link to="/about" onClick={() => setMenuOpen(false)}>
-            About Us
-          </Link>
-
-          <a href="/#contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </a>
-
-          <button className="bg-orange-500 text-white py-3 rounded-lg mt-2">
+          {/* Mobile WhatsApp Button */}
+          <a
+            href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20build%20a%20website"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-orange-500 text-white py-3 rounded-lg mt-2 text-center"
+          >
             Get Website
-          </button>
-
+          </a>
         </motion.div>
       )}
     </motion.nav>

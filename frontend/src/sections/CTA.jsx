@@ -30,15 +30,27 @@ const CTA = () => {
           Stop losing customers to outdated designs. Let's build a high-converting digital engine that drives your business forward.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <button className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 transition-all active:scale-95">
-            🚀 Start My Project
-          </button>
+<div className="flex flex-col sm:flex-row justify-center gap-6">
 
-          <button className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/80 dark:hover:bg-white/20 transition-all active:scale-95">
-            View Case Studies
-          </button>
-        </div>
+  {/* WhatsApp Button */}
+  <a
+    href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20start%20my%20project"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 transition-all active:scale-95 text-center"
+  >
+    🚀 Start My Project
+  </a>
+
+  {/* Work Section Scroll */}
+  <a
+    href="#work"
+    className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/80 dark:hover:bg-white/20 transition-all active:scale-95 text-center"
+  >
+    View Case Studies
+  </a>
+
+</div>
       </motion.div>
 
     </section>

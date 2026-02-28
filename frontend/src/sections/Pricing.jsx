@@ -71,6 +71,7 @@ const Pricing = () => {
                 : "bg-white dark:bg-slate-900/50 backdrop-blur-sm border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:border-orange-500/30"
               }`}
           >
+
             {/* Popular Badge */}
             {plan.popular && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">
@@ -105,14 +106,20 @@ const Pricing = () => {
               ))}
             </ul>
 
-            {/* Action Button */}
-            <button className={`w-full py-4 rounded-2xl font-bold transition-all duration-300 active:scale-95 shadow-lg hover:scale-105 hover:shadow-orange-500/20
-              ${plan.popular
-                ? "bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500"
-                : "bg-orange-500 text-white hover:bg-orange-600 shadow-orange-500/20"
-              }`}>
+            {/* WhatsApp Button */}
+            <a
+              href={`https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20am%20interested%20in%20your%20${plan.name}%20plan`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full py-4 rounded-2xl font-bold transition-all duration-300 active:scale-95 shadow-lg hover:scale-105 hover:shadow-orange-500/20 text-center
+                ${plan.popular
+                  ? "bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500"
+                  : "bg-orange-500 text-white hover:bg-orange-600 shadow-orange-500/20"
+                }`}
+            >
               Subscribe Now
-            </button>
+            </a>
+
           </motion.div>
         ))}
       </div>

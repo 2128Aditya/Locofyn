@@ -73,9 +73,14 @@ const Feature = () => {
           </div>
 
           {/* BUTTON */}
-          <button className="mt-8 bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition">
-            Get Your Website
-          </button>
+<a
+  href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20get%20a%20website"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-8 inline-block bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition text-center"
+>
+  Get Your Website
+</a>
         </motion.div>
       </div>
     </section>

@@ -53,6 +53,7 @@ function App() {
             <Route path="/admin" element={<Admin />} /> {/* ✅ MAIN FIX */}
             <Route path="/team" element={<Team />} />
             <Route path="/about" element={<About />} />
+            
           </Routes>
 
           <Footer />
