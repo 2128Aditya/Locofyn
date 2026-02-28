@@ -10,7 +10,7 @@ exports.addBusiness = async (req, res) => {
       github: req.body.github,
       live: req.body.live,
       image: req.file
-        ? `http://localhost:5000/uploads/${req.file.filename}`
+        ? `https://locafyn.onrender.com/uploads/${req.file.filename}`
         : "",
     });
 

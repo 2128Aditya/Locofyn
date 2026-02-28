@@ -81,7 +81,7 @@ exports.updateMember = async (req, res) => {
 
     // Image update
     if (req.file) {
-      updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+      updateData.image = `https://locafyn.onrender.com/uploads/${req.file.filename}`;
     }
 
     const updatedMember = await Team.findByIdAndUpdate(
