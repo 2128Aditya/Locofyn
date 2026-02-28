@@ -1,6 +1,6 @@
 const Team = require("../models/Team");
 
-// ➕ ADD TEAM MEMBER
+// ➕ ADD MEMBER
 exports.addMember = async (req, res) => {
   try {
     const member = new Team({
@@ -19,10 +19,9 @@ exports.addMember = async (req, res) => {
     res.status(201).json({
       success: true,
       message: "Team member added successfully 🚀",
+      data: member,
     });
-
   } catch (error) {
-    console.error(error);
     res.status(500).json({
       success: false,
       error: error.message,
@@ -30,7 +29,7 @@ exports.addMember = async (req, res) => {
   }
 };
 
-// 📥 GET ALL TEAM MEMBERS
+// 📥 GET ALL MEMBERS
 exports.getMembers = async (req, res) => {
   try {
     const members = await Team.find().sort({ createdAt: -1 });
@@ -43,16 +42,66 @@ exports.getMembers = async (req, res) => {
   }
 };
 
-// ❌ DELETE TEAM MEMBER
+// ❌ DELETE MEMBER
 exports.deleteMember = async (req, res) => {
   try {
-    await Team.findByIdAndDelete(req.params.id);
+    const member = await Team.findByIdAndDelete(req.params.id);
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found",
+      });
+    }
 
     res.json({
       success: true,
       message: "Team member deleted 🗑️",
     });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
 
+// ✏️ UPDATE MEMBER (EDIT)
+exports.updateMember = async (req, res) => {
+  try {
+    const { name, role, github, linkedin, portfolio } = req.body;
+
+    const updateData = {
+      name,
+      role,
+      github,
+      linkedin,
+      portfolio,
+    };
+
+    // Image update
+    if (req.file) {
+      updateData.image = `http://localhost:5000/uploads/${req.file.filename}`;
+    }
+
+    const updatedMember = await Team.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedMember) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Member updated successfully ✏️",
+      data: updatedMember,
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
