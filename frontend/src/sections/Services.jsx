@@ -59,14 +59,18 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="relative py-32 bg-slate-50 dark:bg-[#0b1120] overflow-hidden px-6 transition-colors duration-500">
-
-      {/* Decorative Background Elements */}
+    <section
+      id="services"
+      className="relative py-32 px-6 overflow-hidden 
+      bg-slate-50 dark:bg-[#020617] 
+      transition-colors duration-500"
+    >
+      {/* Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 blur-[100px] rounded-full"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 blur-[100px] rounded-full"></div>
 
       {/* Heading */}
-      <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,13 +88,13 @@ const Services = () => {
         </p>
       </div>
 
-      {/* Cards Grid */}
+      {/* Cards */}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6 mt-24 relative z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-24 relative z-10"
       >
         {data.map((itemData, i) => (
           <motion.div
@@ -99,14 +103,20 @@ const Services = () => {
             whileHover={{ y: -10 }}
             className="group relative"
           >
-            {/* Glow effect on hover */}
+            {/* Glow hover */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
 
-            {/* Card Content */}
-            <div className="relative h-full bg-white dark:bg-slate-900/50 p-8 rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-none group-hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
+            {/* Card */}
+            <div className="relative h-full 
+            bg-white dark:bg-white/5 
+            p-8 rounded-3xl 
+            border border-slate-200 dark:border-white/10 
+            shadow-xl shadow-slate-200/50 dark:shadow-none 
+            group-hover:border-purple-500/50 
+            transition-all duration-300 backdrop-blur-sm">
 
-              {/* Icon Container */}
-              <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-2xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+              {/* Icon */}
+              <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-2xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition">
                 {itemData.icon}
               </div>
 
@@ -115,18 +125,17 @@ const Services = () => {
                 {itemData.title}
               </h3>
 
-              {/* Description */}
+              {/* Desc */}
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
                 {itemData.desc}
               </p>
 
-              {/* Bottom Decoration */}
+              {/* Line */}
               <div className="w-12 group-hover:w-full h-1 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full transition-all duration-500"></div>
             </div>
           </motion.div>
         ))}
       </motion.div>
-
     </section>
   );
 };

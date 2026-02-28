@@ -4,7 +4,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: "₹999",
+      price: "₹XXX",
       features: [
         "1 Page Website",
         "Mobile Responsive",
@@ -15,7 +15,7 @@ const Pricing = () => {
     },
     {
       name: "Standard",
-      price: "₹1999",
+      price: "₹XXXX",
       popular: true,
       features: [
         "Up to 5 Pages Website",
@@ -28,7 +28,7 @@ const Pricing = () => {
     },
     {
       name: "Premium",
-      price: "₹2999",
+      price: "₹XXXXX",
       features: [
         "Full Custom Website",
         "Advanced UI/UX",

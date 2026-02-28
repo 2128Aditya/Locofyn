@@ -24,9 +24,13 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     return (
-        <section id="faq" className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden px-6 transition-colors duration-500">
-
-            {/* Background glow */}
+        <section
+            id="faq"
+            className="relative py-32 px-6 overflow-hidden 
+            bg-white dark:bg-[#020617] 
+            transition-colors duration-500"
+        >
+            {/* Glow */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] rounded-full"></div>
 
             <div className="max-w-4xl mx-auto relative z-10">
@@ -41,24 +45,37 @@ const FAQ = () => {
                     {faqs.map((faq, i) => (
                         <div
                             key={i}
-                            className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden transition-all duration-300"
+                            className="rounded-2xl overflow-hidden 
+                            bg-slate-50 dark:bg-white/5 
+                            border border-slate-200 dark:border-white/10 
+                            transition-all duration-300"
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full p-6 text-left flex items-center justify-between hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                                className="w-full p-6 flex items-center justify-between text-left 
+                                hover:bg-slate-100 dark:hover:bg-white/10 
+                                transition"
                             >
-                                <span className="font-bold text-slate-800 dark:text-gray-200 text-lg">
+                                <span className="font-semibold text-slate-800 dark:text-white text-lg">
                                     {faq.q}
                                 </span>
-                                <span className={`text-2xl transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}>
+
+                                <span
+                                    className={`text-2xl text-gray-500 dark:text-gray-400 transition-transform duration-300 
+                                    ${openIndex === i ? "rotate-180" : ""}`}
+                                >
                                     ⌄
                                 </span>
                             </button>
 
                             {openIndex === i && (
-                                <div className="px-6 pb-6 text-slate-600 dark:text-gray-400 leading-relaxed transition-all">
+                                <motion.div
+                                    initial={{ opacity: 0, y: -5 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="px-6 pb-6 text-slate-600 dark:text-gray-400 leading-relaxed"
+                                >
                                     {faq.a}
-                                </div>
+                                </motion.div>
                             )}
                         </div>
                     ))}
