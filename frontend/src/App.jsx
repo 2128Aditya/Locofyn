@@ -1,17 +1,33 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
 import AdminLogin from "./pages/AdminLogin";
-import Admin from "./pages/Admin"; 
+import Admin from "./pages/Admin";
 import About from "./pages/About";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Team from "./pages/Team";
 
 
-<Route path="/about" element={<About />} />
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element && element.scrollIntoView) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +44,7 @@ function App() {
         <Loader />
       ) : (
         <>
+          <ScrollToTop />
           <Navbar />
 
           <Routes>

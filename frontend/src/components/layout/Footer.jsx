@@ -1,7 +1,6 @@
 const Footer = () => {
   return (
     <footer
-      id="contact"
       className="bg-slate-50 dark:bg-black text-slate-900 dark:text-white border-t border-slate-200 dark:border-white/10 w-full transition-colors duration-500"
     >
       <div className="max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
@@ -13,7 +12,7 @@ const Footer = () => {
           </h1>
 
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
-            Empowering local entrepreneurs with premium digital identities. 
+            Empowering local entrepreneurs with premium digital identities.
             We help businesses grow digitally 🚀
           </p>
 
@@ -45,13 +44,13 @@ const Footer = () => {
             </li>
 
             <li>
-              <a href="#services" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+              <a href="/#services" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
                 Services
               </a>
             </li>
 
             <li>
-              <a href="#work" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+              <a href="/#work" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
                 Work
               </a>
             </li>
@@ -63,7 +62,7 @@ const Footer = () => {
             </li>
 
             <li>
-              <a href="#contact" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
+              <a href="/#contact" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
                 Contact
               </a>
             </li>

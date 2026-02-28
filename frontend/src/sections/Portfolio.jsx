@@ -12,7 +12,7 @@ const Portfolio = ({ data = [] }) => {
   };
 
   return (
-    <section className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden px-6 transition-colors duration-500">
+    <section id="work" className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden px-6 transition-colors duration-500">
 
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full"></div>
@@ -32,7 +32,7 @@ const Portfolio = ({ data = [] }) => {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-6 mt-24 relative z-10">
-        
+
         {data.length === 0 ? (
           <p className="text-center col-span-full text-gray-400">
             No businesses found
