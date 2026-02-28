@@ -3,7 +3,7 @@ import contactImg from "../assets/contact.svg";
 
 const Contact = () => {
   return (
-    <section className="relative py-32 bg-slate-50 dark:bg-[#0b1120] overflow-hidden px-6 transition-colors duration-500">
+    <section id="contact" className="relative py-32 bg-slate-50 dark:bg-[#0b1120] overflow-hidden px-6 transition-colors duration-500">
 
       {/* Decorative Glows */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/5 dark:bg-purple-500/10 blur-[120px] rounded-full"></div>

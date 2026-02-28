@@ -44,10 +44,9 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${
-          scrolled
-            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
-            : "bg-transparent dark:bg-white/5"
+        ${scrolled
+          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
+          : "bg-transparent dark:bg-white/5"
         }`}
     >
       <div className="w-full px-6 py-4 flex items-center justify-between">
@@ -64,11 +63,11 @@ const Navbar = () => {
             Home
           </Link>
 
-          <a href="#services" className="hover:text-orange-500 transition">
+          <a href="/#services" className="hover:text-orange-500 transition">
             Services
           </a>
 
-          <a href="#work" className="hover:text-orange-500 transition">
+          <a href="/#work" className="hover:text-orange-500 transition">
             Work
           </a>
 
@@ -76,7 +75,7 @@ const Navbar = () => {
             About Us
           </Link>
 
-          <a href="#contact" className="hover:text-orange-500 transition">
+          <a href="/#contact" className="hover:text-orange-500 transition">
             Contact
           </a>
         </div>
@@ -119,11 +118,11 @@ const Navbar = () => {
             Home
           </Link>
 
-          <a href="#services" onClick={() => setMenuOpen(false)}>
+          <a href="/#services" onClick={() => setMenuOpen(false)}>
             Services
           </a>
 
-          <a href="#work" onClick={() => setMenuOpen(false)}>
+          <a href="/#work" onClick={() => setMenuOpen(false)}>
             Work
           </a>
 
@@ -131,7 +130,7 @@ const Navbar = () => {
             About Us
           </Link>
 
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
+          <a href="/#contact" onClick={() => setMenuOpen(false)}>
             Contact
           </a>
 

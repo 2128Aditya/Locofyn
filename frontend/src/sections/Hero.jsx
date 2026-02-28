@@ -2,7 +2,7 @@ import adVideo from "../assets/ad.mp4";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
 
       {/* Background Video */}
       <video
