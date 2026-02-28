@@ -1,7 +1,36 @@
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import emailjs from "emailjs-com";
 import contactImg from "../assets/contact.svg";
 
 const Contact = () => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_ldrv4yk",       
+        "template_1umlnbi",      
+        form.current,
+        "7vYH3Y7d4szxdaWq3"      
+      )
+      .then(
+        () => {
+          alert("Message sent successfully 🚀");
+          form.current.reset();
+          setLoading(false);
+        },
+        () => {
+          alert("Failed to send ❌");
+          setLoading(false);
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
@@ -39,14 +68,8 @@ const Contact = () => {
 
           {/* INFO */}
           <div className="mt-12 space-y-8">
-            
-            {/* Item */}
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 
-              bg-white dark:bg-white/5 
-              rounded-2xl flex items-center justify-center text-2xl 
-              border border-slate-100 dark:border-white/10 
-              backdrop-blur-sm group-hover:scale-110 transition">
+              <div className="w-14 h-14 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-slate-100 dark:border-white/10 backdrop-blur-sm group-hover:scale-110 transition">
                 📍
               </div>
               <div>
@@ -56,11 +79,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 
-              bg-white dark:bg-white/5 
-              rounded-2xl flex items-center justify-center text-2xl 
-              border border-slate-100 dark:border-white/10 
-              backdrop-blur-sm group-hover:scale-110 transition">
+              <div className="w-14 h-14 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-slate-100 dark:border-white/10 backdrop-blur-sm group-hover:scale-110 transition">
                 📧
               </div>
               <div>
@@ -70,11 +89,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-6 group">
-              <div className="w-14 h-14 
-              bg-white dark:bg-white/5 
-              rounded-2xl flex items-center justify-center text-2xl 
-              border border-slate-100 dark:border-white/10 
-              backdrop-blur-sm group-hover:scale-110 transition">
+              <div className="w-14 h-14 bg-white dark:bg-white/5 rounded-2xl flex items-center justify-center text-2xl border border-slate-100 dark:border-white/10 backdrop-blur-sm group-hover:scale-110 transition">
                 📱
               </div>
               <div>
@@ -87,7 +102,7 @@ const Contact = () => {
           {/* BUTTON */}
           <div className="mt-12">
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918052269388"
               target="_blank"
               className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-emerald-500/20 transition"
             >
@@ -105,41 +120,43 @@ const Contact = () => {
           <div className="absolute -inset-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-[40px] opacity-10 blur-2xl"></div>
 
           <form
-            className="relative 
-            bg-white dark:bg-white/5 
-            backdrop-blur-2xl 
-            p-10 md:p-12 rounded-[40px] 
-            border border-slate-200 dark:border-white/10 
-            shadow-2xl dark:shadow-none 
-            flex flex-col gap-6"
+            ref={form}
+            onSubmit={sendEmail}
+            className="relative bg-white dark:bg-white/5 backdrop-blur-2xl p-10 md:p-12 rounded-[40px] border border-slate-200 dark:border-white/10 shadow-2xl dark:shadow-none flex flex-col gap-6"
           >
-            {/* Inputs */}
             <input
               type="text"
+              name="user_name"
               placeholder="Full Name"
               className="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white outline-none"
+              required
             />
 
             <input
               type="text"
+              name="user_phone"
               placeholder="Phone Number"
               className="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white outline-none"
             />
 
             <input
               type="email"
+              name="user_email"
               placeholder="Email"
               className="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white outline-none"
+              required
             />
 
             <textarea
+              name="message"
               rows="4"
               placeholder="Your Message"
               className="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white outline-none resize-none"
+              required
             />
 
             <button className="bg-orange-500 hover:bg-orange-600 text-white py-5 rounded-2xl font-bold shadow-xl shadow-orange-500/20 transition">
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </motion.div>
