@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const API = import.meta.env.VITE_API_URL;
+
 const Admin = () => {
   const [active, setActive] = useState("business");
 
@@ -33,27 +35,21 @@ const Admin = () => {
     fetchTeam();
   }, []);
 
-  // FETCH BUSINESS
-  const fetchBusiness = () => {
-    fetch("http://localhost:5000/api/business")
-      .then((res) => res.json())
-      .then((data) => setList(data));
-  };
-
-  // FETCH TEAM
-  const fetchTeam = () => {
-    fetch("http://localhost:5000/api/team")
-      .then((res) => res.json())
-      .then((data) => setTeamList(data));
-  };
-
   const fixURL = (url) => {
     if (!url) return "";
     if (!url.startsWith("http")) return "https://" + url;
     return url;
   };
 
-  // ADD BUSINESS
+  // ================= BUSINESS =================
+
+  const fetchBusiness = () => {
+    fetch(`${API}/api/business`)
+      .then((res) => res.json())
+      .then((data) => setList(data))
+      .catch(() => alert("Failed to fetch business"));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -65,7 +61,7 @@ const Admin = () => {
     data.append("live", fixURL(form.live));
     data.append("image", image);
 
-    const res = await fetch("http://localhost:5000/api/business/add", {
+    const res = await fetch(`${API}/api/business/add`, {
       method: "POST",
       body: data,
     });
@@ -85,15 +81,22 @@ const Admin = () => {
     }
   };
 
-  // DELETE BUSINESS
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/business/${id}`, {
+    await fetch(`${API}/api/business/${id}`, {
       method: "DELETE",
     });
     fetchBusiness();
   };
 
-  // ADD TEAM
+  // ================= TEAM =================
+
+  const fetchTeam = () => {
+    fetch(`${API}/api/team`)
+      .then((res) => res.json())
+      .then((data) => setTeamList(data))
+      .catch(() => alert("Failed to fetch team"));
+  };
+
   const handleTeamSubmit = async (e) => {
     e.preventDefault();
 
@@ -105,7 +108,7 @@ const Admin = () => {
     data.append("portfolio", fixURL(teamForm.portfolio));
     data.append("image", teamImage);
 
-    const res = await fetch("http://localhost:5000/api/team/add", {
+    const res = await fetch(`${API}/api/team/add`, {
       method: "POST",
       body: data,
     });
@@ -126,9 +129,8 @@ const Admin = () => {
     }
   };
 
-  // DELETE TEAM
   const deleteTeam = async (id) => {
-    await fetch(`http://localhost:5000/api/team/${id}`, {
+    await fetch(`${API}/api/team/${id}`, {
       method: "DELETE",
     });
     fetchTeam();
@@ -177,101 +179,84 @@ const Admin = () => {
           </button>
         </div>
 
-        {/* BUSINESS SECTION */}
+        {/* BUSINESS */}
         {active === "business" && (
           <div className="grid lg:grid-cols-2 gap-10">
 
-            {/* FORM */}
             <div className="bg-white p-6 rounded-xl shadow border">
-              <h2 className="text-lg font-semibold mb-4">
-                Add New Business
-              </h2>
+              <h2 className="text-lg font-semibold mb-4">Add Business</h2>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-
-                <input name="name" value={form.name}
+                <input value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Name"
                   className="w-full p-3 border rounded-lg"
                 />
 
-                <textarea name="description" value={form.description}
+                <textarea value={form.description}
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
                   placeholder="Description"
                   className="w-full p-3 border rounded-lg"
                 />
 
-                <input name="whatsapp" value={form.whatsapp}
+                <input value={form.whatsapp}
                   onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
                   placeholder="WhatsApp"
                   className="w-full p-3 border rounded-lg"
                 />
 
-                <input name="github" value={form.github}
+                <input value={form.github}
                   onChange={(e) => setForm({ ...form, github: e.target.value })}
                   placeholder="GitHub"
                   className="w-full p-3 border rounded-lg"
                 />
 
-                <input name="live" value={form.live}
+                <input value={form.live}
                   onChange={(e) => setForm({ ...form, live: e.target.value })}
                   placeholder="Live"
                   className="w-full p-3 border rounded-lg"
                 />
 
-                <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+                <input type="file"
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
 
                 <button className="w-full bg-purple-600 text-white py-3 rounded-lg">
                   Add Business
                 </button>
-
               </form>
             </div>
 
-            {/* LIST */}
-            <div>
-              <h2 className="text-lg font-semibold mb-4">
-                All Businesses
-              </h2>
+            <div className="space-y-4 max-h-[500px] overflow-y-auto">
+              {list.map((item) => (
+                <div key={item._id}
+                  className="bg-white p-4 rounded-xl shadow border flex justify-between">
 
-              <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-
-                {list.map((item) => (
-                  <div key={item._id}
-                    className="bg-white p-4 rounded-xl shadow border flex justify-between items-center">
-
-                    <div>
-                      <p className="font-semibold">{item.name}</p>
-                      <p className="text-sm text-gray-500">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => handleDelete(item._id)}
-                      className="bg-red-500 text-white px-3 py-2 rounded-lg"
-                    >
-                      Delete
-                    </button>
-
+                  <div>
+                    <p className="font-semibold">{item.name}</p>
+                    <p className="text-sm text-gray-500">{item.description}</p>
                   </div>
-                ))}
 
-              </div>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="bg-red-500 text-white px-3 py-2 rounded-lg"
+                  >
+                    Delete
+                  </button>
+
+                </div>
+              ))}
             </div>
 
           </div>
         )}
 
-        {/* TEAM SECTION */}
+        {/* TEAM */}
         {active === "team" && (
           <div className="grid lg:grid-cols-2 gap-10">
 
-            {/* FORM */}
             <div className="bg-white p-6 rounded-xl shadow border">
-              <h2 className="text-lg font-semibold mb-4">
-                Add Team Member
-              </h2>
+              <h2 className="text-lg font-semibold mb-4">Add Member</h2>
 
               <form onSubmit={handleTeamSubmit} className="space-y-4">
 
@@ -311,39 +296,30 @@ const Admin = () => {
               </form>
             </div>
 
-            {/* LIST */}
-            <div>
-              <h2 className="text-lg font-semibold mb-4">
-                All Team Members
-              </h2>
+            <div className="space-y-4 max-h-[500px] overflow-y-auto">
+              {teamList.map((item) => (
+                <div key={item._id}
+                  className="bg-white p-4 rounded-xl shadow border flex justify-between items-center">
 
-              <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-
-                {teamList.map((item) => (
-                  <div key={item._id}
-                    className="bg-white p-4 rounded-xl shadow border flex justify-between items-center">
-
-                    <div className="flex items-center gap-3">
-                      <img src={item.image}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div>
-                        <p className="font-semibold">{item.name}</p>
-                        <p className="text-sm text-gray-500">{item.role}</p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <img src={item.image}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="font-semibold">{item.name}</p>
+                      <p className="text-sm text-gray-500">{item.role}</p>
                     </div>
-
-                    <button
-                      onClick={() => deleteTeam(item._id)}
-                      className="bg-red-500 text-white px-3 py-2 rounded-lg"
-                    >
-                      Delete
-                    </button>
-
                   </div>
-                ))}
 
-              </div>
+                  <button
+                    onClick={() => deleteTeam(item._id)}
+                    className="bg-red-500 text-white px-3 py-2 rounded-lg"
+                  >
+                    Delete
+                  </button>
+
+                </div>
+              ))}
             </div>
 
           </div>

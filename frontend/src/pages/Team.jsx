@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const API = import.meta.env.VITE_API_URL;
+
 const Team = () => {
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/team")
+    fetch(`${API}/api/team`)
       .then((res) => res.json())
-      .then((data) => setTeam(data));
+      .then((data) => setTeam(data))
+      .catch(() => alert("Failed to load team"));
   }, []);
 
   const fixURL = (url) => {
@@ -31,14 +34,14 @@ const Team = () => {
 
       {/* Grid */}
       <div className="flex justify-center flex-wrap gap-10">
-        {team.map((member, i) => (
+        {team.map((member) => (
           <motion.div
             key={member._id}
             whileHover={{ scale: 1.05 }}
-            className="relative w-[320px] h-105 rounded-3xl overflow-hidden shadow-xl group"
+            className="relative w-[320px] h-[420px] rounded-3xl overflow-hidden shadow-xl group"
           >
 
-            {/* Image Full */}
+            {/* Image */}
             <img
               src={member.image}
               alt={member.name}
@@ -48,8 +51,8 @@ const Team = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
 
-            {/* Bottom Box */}
-            <div className="absolute bottom-0 w-full p-5 bg-white/90 backdrop-blur-md rounded-t-3xl transition-all duration-500 group-hover:-translate-y-2.5">
+            {/* Info Box */}
+            <div className="absolute bottom-0 w-full p-5 bg-white/90 backdrop-blur-md rounded-t-3xl transition-all duration-500 group-hover:-translate-y-2">
 
               <h3 className="text-lg font-bold text-gray-900">
                 {member.name}
@@ -66,6 +69,7 @@ const Team = () => {
                   <a
                     href={fixURL(member.portfolio)}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-xs px-3 py-1 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
                   >
                     Portfolio
@@ -76,6 +80,7 @@ const Team = () => {
                   <a
                     href={fixURL(member.github)}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-xs px-3 py-1 bg-gray-900 text-white rounded-lg hover:bg-black transition"
                   >
                     GitHub
@@ -86,6 +91,7 @@ const Team = () => {
                   <a
                     href={fixURL(member.linkedin)}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-xs px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                   >
                     LinkedIn
