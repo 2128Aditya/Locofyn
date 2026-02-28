@@ -4,10 +4,20 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [dark, setDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // ✅ FIX: Load theme properly on mount
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   // Scroll effect
   useEffect(() => {
@@ -34,9 +44,10 @@ const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
-          : "bg-transparent dark:bg-white/5"
+        ${
+          scrolled
+            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
+            : "bg-transparent dark:bg-white/5"
         }`}
     >
       <div className="w-full px-6 py-4 flex items-center justify-between">
@@ -68,7 +79,6 @@ const Navbar = () => {
           <a href="#contact" className="hover:text-orange-500 transition">
             Contact
           </a>
-
         </div>
 
         {/* RIGHT SIDE */}
