@@ -93,7 +93,7 @@ const Footer = () => {
           <ul className="space-y-4 text-slate-600 dark:text-gray-400">
             <li className="flex items-center gap-3">
               <span>📍</span>
-              <span>Deoria, Uttar Pradesh</span>
+              <span>Lucknow, Uttar Pradesh</span>
             </li>
 
             <li className="flex items-center gap-3">
@@ -103,7 +103,13 @@ const Footer = () => {
 
             <li className="flex items-center gap-3">
               <span>📱</span>
-              <span>+91 98765 43210</span>
+              <span>+91 8052269388</span>
+              
+            </li>
+                        <li className="flex items-center gap-3">
+              <span>📱</span>
+              <span>+91 7678948477</span>
+              
             </li>
           </ul>
         </div>
