@@ -14,7 +14,8 @@ exports.getTeam = async (req, res) => {
 exports.addTeam = async (req, res) => {
   try {
     const { name, role, github, linkedin, portfolio } = req.body;
-
+    const base = process.env.BASE_URL || 
+    "https://localhost:5000";
     const image = req.file
       ? `${process.env.BASE_URL}/uploads/${req.file.filename}`
       : "";
