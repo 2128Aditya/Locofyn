@@ -1,8 +1,10 @@
 const Business = require("../models/Business");
 
-// ➕ Add
+// ➕ ADD BUSINESS
 exports.addBusiness = async (req, res) => {
   try {
+    const base = process.env.BASE_URL || "https://locafyn.onrender.com";
+
     const newBusiness = new Business({
       name: req.body.name,
       description: req.body.description,
@@ -10,26 +12,30 @@ exports.addBusiness = async (req, res) => {
       github: req.body.github,
       live: req.body.live,
       image: req.file
-        ? `https://locafyn.onrender.com/uploads/${req.file.filename}`
+        ? `${base}/uploads/${req.file.filename}`
         : "",
     });
 
     await newBusiness.save();
 
-    res.json({ success: true, message: "Added 🔥" });
+    res.json({ success: true, message: "Business Added 🔥" });
   } catch (err) {
-    console.log(err);
+    console.log("Business Error:", err);
     res.status(500).json({ error: err.message });
   }
 };
 
-// 📥 Get
+// 📥 GET ALL BUSINESS
 exports.getBusinesses = async (req, res) => {
-  const data = await Business.find().sort({ createdAt: -1 });
-  res.json(data);
+  try {
+    const data = await Business.find().sort({ createdAt: -1 });
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
 
-// ❌ Delete
+// ❌ DELETE BUSINESS
 exports.deleteBusiness = async (req, res) => {
   try {
     await Business.findByIdAndDelete(req.params.id);
