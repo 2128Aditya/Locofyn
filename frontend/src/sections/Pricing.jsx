@@ -108,7 +108,7 @@ const Pricing = () => {
 
             {/* WhatsApp Button */}
             <a
-              href={`https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20am%20interested%20in%20your%20${plan.name}%20plan`}
+              href={`https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20am%20interested%20in%20your%20${plan.name}%20plan`}
               target="_blank"
               rel="noopener noreferrer"
               className={`w-full py-4 rounded-2xl font-bold transition-all duration-300 active:scale-95 shadow-lg hover:scale-105 hover:shadow-orange-500/20 text-center

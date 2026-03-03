@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="space-y-6">
           <h1 className="text-3xl font-extrabold tracking-tight">
-            Loca<span className="text-orange-500">fyn</span>
+            Loco<span className="text-orange-500">fyn</span>
           </h1>
 
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
@@ -98,7 +98,7 @@ const Footer = () => {
 
             <li className="flex items-center gap-3">
               <span>📧</span>
-              <span>hello@locafyn.com</span>
+              <span>hello@locofyn.com</span>
             </li>
 
             <li className="flex items-center gap-3">
@@ -119,7 +119,7 @@ const Footer = () => {
       {/* Bottom */}
       <div className="border-t border-slate-200 dark:border-white/5 py-8 text-center">
         <p className="text-slate-500 text-sm">
-          © {new Date().getFullYear()} Locafyn 🚀 | Built for Local Businesses
+          © {new Date().getFullYear()} Locofyn 🚀 | Built for Local Businesses
         </p>
       </div>
     </footer>

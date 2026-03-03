@@ -29,7 +29,7 @@ const Loader = () => {
           transition={{ delay: 0.3 }}
           className="text-white text-2xl font-bold tracking-wide"
         >
-          Locafyn
+          Locofyn
         </motion.h1>
 
         {/* Loading Text */}

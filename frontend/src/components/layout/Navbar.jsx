@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {/* LOGO */}
         <Link to="/" className="text-2xl font-bold tracking-wide text-slate-900 dark:text-white">
-          Loca<span className="text-orange-500">fyn</span>
+          Loco<span className="text-orange-500">fyn</span>
         </Link>
 
         {/* CENTER MENU */}
@@ -79,7 +79,7 @@ const Navbar = () => {
 
           {/* CTA - WhatsApp */}
           <a
-            href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20build%20a%20website"
+            href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20build%20a%20website"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-7 py-2.5 rounded-xl font-bold transition"
@@ -112,7 +112,7 @@ const Navbar = () => {
 
           {/* Mobile WhatsApp Button */}
           <a
-            href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20build%20a%20website"
+            href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20build%20a%20website"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 text-white py-3 rounded-lg mt-2 text-center"

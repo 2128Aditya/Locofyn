@@ -31,7 +31,7 @@ const Hero = () => {
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white">
           Build Your Digital presence With{" "}
           <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-            Locafyn
+            locofyn
           </span>
         </h1>
 

@@ -44,7 +44,7 @@ const Feature = () => {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-            At Locafyn, we don’t just create websites — we build powerful digital
+            At Locofyn, we don’t just create websites — we build powerful digital
             platforms designed to attract customers, improve engagement, and drive
             real business growth.
           </p>
@@ -74,7 +74,7 @@ const Feature = () => {
 
           {/* BUTTON */}
 <a
-  href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20get%20a%20website"
+  href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20get%20a%20website"
   target="_blank"
   rel="noopener noreferrer"
   className="mt-8 inline-block bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition text-center"

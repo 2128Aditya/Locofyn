@@ -34,7 +34,7 @@ const CTA = () => {
 
   {/* WhatsApp Button */}
   <a
-    href="https://wa.me/918052269388?text=Hi%20Locafyn,%20I%20want%20to%20start%20my%20project"
+    href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20start%20my%20project"
     target="_blank"
     rel="noopener noreferrer"
     className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 transition-all active:scale-95 text-center"

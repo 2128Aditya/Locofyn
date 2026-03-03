@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
-import AdminLogin from "./pages/AdminLogin";
-import Admin from "./pages/Admin";
 import About from "./pages/About";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -49,8 +47,6 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<Admin />} /> {/* ✅ MAIN FIX */}
             <Route path="/team" element={<Team />} />
             <Route path="/about" element={<About />} />
             

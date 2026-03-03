@@ -5,7 +5,7 @@ const Testimonials = () => {
     {
       name: "Rahul Sharma",
       role: "Salon Owner",
-      text: "Locafyn built my salon website in just a few days. The design is clean, fast, and my customers love it.",
+      text: "Locofyn built my salon website in just a few days. The design is clean, fast, and my customers love it.",
     },
     {
       name: "Amit Verma",
@@ -38,7 +38,7 @@ const Testimonials = () => {
         </h2>
 
         <p className="text-slate-600 dark:text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
-          Don't just take our word for it. Hear from the entrepreneurs who have transformed their businesses with Locafyn.
+          Don't just take our word for it. Hear from the entrepreneurs who have transformed their businesses with Locofyn.
         </p>
       </div>
 

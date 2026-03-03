@@ -49,7 +49,7 @@ const About = () => {
               for Local Heroes
             </h1>
             <p className="text-slate-600 dark:text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Locafyn isn't just a web agency. We're your digital growth partners,
+              Locofyn isn't just a web agency. We're your digital growth partners,
               dedicated to bringing the power of the modern web to every local entrepreneur.
             </p>
           </motion.div>
@@ -98,7 +98,7 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
               <p>
-                Founded in Deoria, Locafyn was born from a simple observation: while the world was moving online at light speed,
+                Founded in Deoria, Locofyn was born from a simple observation: while the world was moving online at light speed,
                 our local businesses were being left behind by high costs and complex technology.
               </p>
               <p>
@@ -187,7 +187,7 @@ const About = () => {
             Ready to Start Your<br />Digital Journey?
           </h2>
           <p className="text-white/60 text-lg md:text-xl mb-12 relative z-10 max-w-xl mx-auto">
-            Join 50+ businesses that have transformed their brand with Locafyn.
+            Join 50+ businesses that have transformed their brand with Locofyn.
           </p>
 
           <a
