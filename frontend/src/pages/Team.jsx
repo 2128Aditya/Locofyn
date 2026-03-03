@@ -16,8 +16,8 @@ const Team = () => {
     {
       _id: "2",
       name: "Aditya Singh",
-      role: "Frontend Developer & UI Designer",
-      image: "https://i.pravatar.cc/400?img=2",
+      role: "Co-Founder & Frontend Developer",
+      image: Ravi,
       github: "https://github.com/Adityasingh-an",
       linkedin: "https://www.linkedin.com/in/aditya-singh-a3173a27a/",
       portfolio: "https://github.com/Adityasingh-an",
