@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import me from "../assets/me.jpeg";
+import Ravi from "../assets/Ravi.jpeg";
 const Team = () => {
 
   // 🔥 STATIC TEAM DATA
