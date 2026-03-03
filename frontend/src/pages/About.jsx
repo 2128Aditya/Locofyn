@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   const stats = [
-    { label: "Projects Delivered", value: "50+", icon: "🚀" },
+    { label: "Projects Delivered", value: "3", icon: "🚀" },
     { label: "Delivery Time", value: "48 hrs", icon: "⚡" },
     { label: "Client Satisfaction", value: "100%", icon: "⭐" },
   ];

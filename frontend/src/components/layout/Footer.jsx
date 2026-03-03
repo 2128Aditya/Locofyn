@@ -1,3 +1,5 @@
+import { FaTwitter, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer
@@ -18,15 +20,43 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex gap-4">
-            {["𝕏", "📸", "💼", "📘"].map((icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
-              >
-                {icon}
-              </a>
-            ))}
+
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
+            >
+              <FaTwitter />
+            </a>
+
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://linkedin.com/in/aaditya212817"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
+            >
+              <FaLinkedin />
+            </a>
+
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-all"
+            >
+              <FaFacebook />
+            </a>
+
           </div>
         </div>
 
@@ -37,35 +67,11 @@ const Footer = () => {
           </h3>
 
           <ul className="space-y-4">
-            <li>
-              <a href="/" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
-                Home
-              </a>
-            </li>
-
-            <li>
-              <a href="/#services" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
-                Services
-              </a>
-            </li>
-
-            <li>
-              <a href="/#work" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
-                Work
-              </a>
-            </li>
-
-            <li>
-              <a href="/team" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
-                Core Team
-              </a>
-            </li>
-
-            <li>
-              <a href="/#contact" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">
-                Contact
-              </a>
-            </li>
+            <li><a href="/" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">Home</a></li>
+            <li><a href="/#services" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">Services</a></li>
+            <li><a href="/#work" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">Work</a></li>
+            <li><a href="/team" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">Core Team</a></li>
+            <li><a href="/#contact" className="text-slate-600 dark:text-gray-400 hover:text-orange-500 transition">Contact</a></li>
           </ul>
         </div>
 
@@ -104,12 +110,11 @@ const Footer = () => {
             <li className="flex items-center gap-3">
               <span>📱</span>
               <span>+91 8052269388</span>
-              
             </li>
-                        <li className="flex items-center gap-3">
+
+            <li className="flex items-center gap-3">
               <span>📱</span>
               <span>+91 7678948477</span>
-              
             </li>
           </ul>
         </div>
@@ -119,7 +124,7 @@ const Footer = () => {
       {/* Bottom */}
       <div className="border-t border-slate-200 dark:border-white/5 py-8 text-center">
         <p className="text-slate-500 text-sm">
-          © {new Date().getFullYear()} Locofyn 🚀 | Built for Local Businesses
+          © {new Date().getFullYear()} Locofyn 🚀 | Built by Aditya Singh
         </p>
       </div>
     </footer>

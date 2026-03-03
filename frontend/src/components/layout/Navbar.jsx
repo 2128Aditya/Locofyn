@@ -43,17 +43,16 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${
-          scrolled
-            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
-            : "bg-transparent dark:bg-white/5"
-        }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-sm"
+          : "bg-transparent dark:bg-white/5"
+      }`}
     >
-      <div className="w-full px-6 py-4 flex items-center justify-between">
+      <div className="w-full px-6 h-[70px] flex items-center justify-between">
 
-        {/* LOGO */}
-        <Link to="/" className="text-2xl font-bold tracking-wide text-slate-900 dark:text-white">
+        {/* TEXT LOGO */}
+        <Link to="/" className="text-2xl font-extrabold tracking-wide text-slate-900 dark:text-white">
           Loco<span className="text-orange-500">fyn</span>
         </Link>
 
@@ -77,12 +76,12 @@ const Navbar = () => {
             {dark ? "🌙" : "☀️"}
           </button>
 
-          {/* CTA - WhatsApp */}
+          {/* CTA */}
           <a
             href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20build%20a%20website"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-7 py-2.5 rounded-xl font-bold transition"
+            className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-7 py-2.5 rounded-xl font-bold transition shadow-md hover:shadow-orange-500/30"
           >
             Get Website
           </a>
@@ -110,7 +109,7 @@ const Navbar = () => {
           <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
           <a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
-          {/* Mobile WhatsApp Button */}
+          {/* Mobile CTA */}
           <a
             href="https://wa.me/918052269388?text=Hi%20Locofyn,%20I%20want%20to%20build%20a%20website"
             target="_blank"
